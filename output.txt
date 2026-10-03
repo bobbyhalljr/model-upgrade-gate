@@ -1,0 +1,19 @@
+Upgrade gate, 2026-10-03
+
+Known breaks (from release notes)
+  BREAK    ticket-classifier: tool_choice.type=tool: returns a 400 error [Claude notes, Sep 28]
+  BREAK    fast-summary: thinking.type=disabled: send "between_tools" instead [Claude notes, Sep 28]
+  BREAK    code-agent: reasoning.effort=none: not supported [OpenAI model page]
+  BREAK    file-agent: tools=write_file: built-in tools changed [Gemini changelog, Sep 17]
+  DEADLINE file-agent: antigravity-preview-05-2026 shuts down 2026-10-05 (2 days)
+
+Contract diff (MOCK claude-sonnet-5 -> MOCK claude-sonnet-5-5)
+  same   output schema
+  same   tool call format
+  BROKE  progress text between tools  user sees nothing before the tool call (empty thinking block)
+  BROKE  forced tool use              400 tool_choice: type "tool" and "any" are not supported for this model.
+  BROKE  thinking off (fast path)     400 invalid_request_error: use "between_tools"
+  same   token limit stop reason
+  same   refusal behavior
+
+GATE: BLOCKED (4 known breaks, 3 contract regressions)

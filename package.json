@@ -1,0 +1,25 @@
+{
+  "name": "model-upgrade-gate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Contract tests and an upgrade gate for LLM providers in TypeScript. Mocked providers, no API key.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Bobby Hall Jr (https://bhjr.dev)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobbyhalljr/model-upgrade-gate.git"
+  },
+  "scripts": {
+    "start": "tsx upgrade-gate.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
